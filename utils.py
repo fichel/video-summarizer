@@ -1,6 +1,5 @@
 # import requirements
 import openai
-import os
 import streamlit as st
 from pathlib import Path
 from moviepy.editor import *
@@ -22,14 +21,15 @@ def get_completion(prompt, model="gpt-3.5-turbo"):
 def video2audio(video_path):
     # extract base path and filename
     video_path = Path(video_path)
-    path = video_path.parent
     fname = video_path.name.replace('mp4', 'mp3')
 
     # load the mp4 file
     video = VideoFileClip(str(video_path))
     
     # extract audio from video
-    audio_path = Path("audio")/fname
+    audio_dir = Path("audio")
+    audio_dir.mkdir(parents=True, exist_ok=True)
+    audio_path = audio_dir/fname
     video.audio.write_audiofile(audio_path)
     return audio_path
 
