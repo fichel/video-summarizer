@@ -1,4 +1,4 @@
-# video-summarizer
+# 📺 video-summarizer
 Video Summarizer App that infers topics
 
 The summarizarion works as follows:
