@@ -2,6 +2,9 @@
 video/
 audio/
 
+# mac environment
+.DS_Store
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -133,7 +136,7 @@ env.bak/
 venv.bak/
 
 # vscode project settings
-.vscode
+.vscode/
 
 # Spyder project settings
 .spyderproject
