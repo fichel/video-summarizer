@@ -1,13 +1,12 @@
 # import requirements
 import openai
 import os
+import streamlit as st
 from pathlib import Path
-from dotenv import load_dotenv, find_dotenv
 from moviepy.editor import *
 
 # load keys
-_ = load_dotenv(find_dotenv())
-openai.api_key = os.getenv("OPENAI_API_KEY")
+openai.api_key = st.secrets['OPENAI_API_KEY']
 
 # helper function to get chat completion
 def get_completion(prompt, model="gpt-3.5-turbo"):
