@@ -3,7 +3,7 @@ Video Summarizer App that infers topics
 
 The summarizarion works as follows:
 
-1. The user uploads a video (currently supports mp4 only)
-2. The app uses moviepy (ffmpeg under the hood) to extract the audio and save an mp3
-3. Uses OpenAI's Audio transcription (Whisper) API, it extracts the transcription from the mp3
-4. Uses OpanAI's Chatcompletion api to summarize and infer topics
+1. User uploads a video (currently supports mp4 only)
+2. Extract the audio and save it as mp3 by using moviepy (ffmpeg under the hood)
+3. Extract the transcription from the mp3 using OpenAI's Audio transcription (Whisper) API 
+4. Infer topics and summarize transcriptionusing OpenAI's Chatcompletion API 
