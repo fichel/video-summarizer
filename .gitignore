@@ -1,5 +1,5 @@
 # streamlit secrets
-./streamlit/secrets.toml
+.streamlit/secrets.toml
 
 # media files
 video/
