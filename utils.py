@@ -77,6 +77,7 @@ def get_summary(transcript, number_of_topics, size):
     summary = get_completion(prompt)
     return summary.replace('$', '\$')
 
+# save uploaded video to disk
 def save_uploaded_video(video):
     # Create a 'video' directory if it doesn't exist
     video_dir = Path('video')
@@ -97,23 +98,3 @@ def delete_files_in_directory(dir_list):
         for file_path in dir_path.glob("*"):
             if file_path.is_file():
                 file_path.unlink()
-
-# summarize video
-def summarize_video(video_path, helper_prompt=""):
-    audio_path = video2audio(video_path)
-    transcript = get_transcription(audio_path, helper_prompt)
-    prompt = f"""
-    Your task is to summarize a video transcript delimited by tripple backtics in order to share the main highlights with the company employees.
-    - infer at most 3 topics from the video
-    - create a 2 sentence summary for each topic
-    - Respond using the following structure:
-
-    ## <Topic>
-    <Summary>
-
-    Only output text in BRAZILIAN PORTUGUESE.
-
-    ```{transcript}```
-    """
-    summary = get_completion(prompt)
-    return summary
