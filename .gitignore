@@ -1,3 +1,6 @@
+# notebooks contain sensitive info
+/notebooks
+
 # streamlit secrets
 .streamlit/secrets.toml
 
