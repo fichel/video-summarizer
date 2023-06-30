@@ -48,12 +48,12 @@ def get_transcription(audio_path, prompt=""):
     return transcript
 
 # helper function to summarize a video transcript
-def get_summary(transcript, number_of_topics, size):
+def get_summary(transcript, number_of_topics, size, language="BRAZILIAN PORTUGUESE"):
     prompt_zero = f"""
     Your task is to summarize a video transcript delimited by tripple backtics in order to share the main highlights with the company employees.
     - create a {(size+1)*20} word long summary
     
-    Only output text in BRAZILIAN PORTUGUESE.
+    Only output text in {language}.
 
     ```{transcript}```
     """
@@ -67,7 +67,7 @@ def get_summary(transcript, number_of_topics, size):
     #### <Topic>
     <Summary>
 
-    Only output text in BRAZILIAN PORTUGUESE.
+    Only output text in {language}.
 
     ```{transcript}```
     """
