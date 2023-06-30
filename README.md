@@ -22,12 +22,22 @@ The summarizarion works as follows:
    pip install -r requirements.txt
    ```
 
-3. Create a `secrets.toml` file in the `.streamlit` directory. You can use the `secrets_example.toml` file as a reference. Add your OpenAI API Key to the `secrets.toml` file in the following format:
+3. Install ffmpeg
+   * If you're on mac:
+   ```
+   brew install ffmpeg
+   ```
+   * On linux:
+   ```
+   sudo apt-get install ffmpeg
+   ```
+
+4. Create a `secrets.toml` file in the `.streamlit` directory. You can use the `secrets_example.toml` file as a reference. Add your OpenAI API Key to the `secrets.toml` file in the following format:
    ```
    OPENAI_API_KEY=your_openai_key
    ```
 
-4. Run the following command in your terminal to start the streamlit app:
+5. Run the following command in your terminal to start the streamlit app:
    ```
    streamlit run app.py -w
    ```
