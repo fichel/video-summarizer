@@ -39,7 +39,7 @@ The summarizarion works as follows:
 
 5. Run the following command in your terminal to start the streamlit app:
    ```
-   streamlit run app.py -w
+   streamlit run app.py
    ```
 
    This will launch the Streamlit UI, allowing you to interact with the application.
