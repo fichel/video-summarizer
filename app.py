@@ -87,7 +87,7 @@ def main():
                 summary = video_summarizer.summarize_video(
                     st.session_state.transcription, 
                     st.session_state.number_of_topics, 
-                    SIZE_OPTIONS.index(st.session_state.size)
+                    st.session_state.size
                 )
             st.success('Finished summarization.', icon='✅')
             st.divider()

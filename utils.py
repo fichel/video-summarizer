@@ -7,6 +7,12 @@ from moviepy.editor import *
 # load keys
 openai.api_key = st.secrets['OPENAI_API_KEY']
 
+size_to_value = dict([
+    ('small', '25 to 50'),
+    ('medium', '50 to 100'),
+    ('large', '150 to 300')
+])
+
 # helper function to get chat completion
 def get_completion(prompt, model="gpt-3.5-turbo"):
     messages = [{"role": "user", "content": prompt}]
@@ -51,7 +57,7 @@ def get_transcription(audio_path, prompt=""):
 def get_summary(transcript, number_of_topics, size, language="BRAZILIAN PORTUGUESE"):
     prompt_zero = f"""
     Your task is to summarize a video transcript delimited by tripple backtics in order to share the main highlights with the company employees.
-    - create a {(size+1)*20} word long summary
+    - create a {size_to_value[size]} word long summary
     
     Only output text in {language}.
 
@@ -60,8 +66,10 @@ def get_summary(transcript, number_of_topics, size, language="BRAZILIAN PORTUGUE
 
     prompt = f"""
     Your task is to summarize a video transcript delimited by tripple backtics in order to share the main highlights with the company employees.
-    - infer {number_of_topics} topics from the video
-    - create a {(size+1)*20} word long summary for each topic
+    - infer exactly {number_of_topics} topics from the video
+    - create {size_to_value[size]} word long summaries for each one of the topics
+    - avoid duplicating content
+    - avoid any final summaries or conclusions at the end. Only summarize each topic
     - Respond using the following structure for each topic:
 
     #### <Topic>
